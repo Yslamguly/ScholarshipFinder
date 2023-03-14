@@ -1,0 +1,44 @@
+CREATE TABLE scholarship_finder.categories (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar(255) NOT NULL,
+	CONSTRAINT category_pk PRIMARY KEY (id)
+);
+CREATE TABLE scholarship_finder.scholarship_category (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	scholarship_id int4 NOT NULL,
+	category_id int4 NOT NULL,
+	CONSTRAINT scholarship_category_pk PRIMARY KEY (id),
+	CONSTRAINT fk_scholarhip_id FOREIGN KEY (scholarship_id) REFERENCES scholarship_finder.scholarships(id) ON UPDATE CASCADE,
+	CONSTRAINT scholarship_category_fk FOREIGN KEY (id) REFERENCES scholarship_finder.categories(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE TABLE scholarship_finder.scholarships (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	title varchar NOT NULL,
+	description text NULL,
+	deadline_date date NOT NULL,
+	link varchar NOT NULL,
+	image varchar NULL,
+	CONSTRAINT scholarships_pk PRIMARY KEY (id)
+);
+CREATE TABLE scholarship_finder.users (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	"password" varchar(255) NOT NULL,
+	isverified bool NOT NULL DEFAULT false,
+	CONSTRAINT user_pk PRIMARY KEY (id)
+);
+CREATE TABLE scholarship_finder.wish_list (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	user_id int4 NOT NULL,
+	CONSTRAINT wish_list_pk PRIMARY KEY (id),
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES scholarship_finder.users(id) ON UPDATE CASCADE
+);
+CREATE TABLE scholarship_finder.wish_list_item (
+	id int4 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	wish_list_id int4 NOT NULL,
+	scholarship_id int4 NOT NULL,
+	CONSTRAINT wish_list_item_pk PRIMARY KEY (id),
+	CONSTRAINT fk_scholarship_id FOREIGN KEY (id) REFERENCES scholarship_finder.scholarships(id) ON UPDATE CASCADE,
+	CONSTRAINT fk_wish_list_id FOREIGN KEY (wish_list_id) REFERENCES scholarship_finder.wish_list(id) ON UPDATE CASCADE
+);
