@@ -1,6 +1,6 @@
 const knex = require('knex')
 require('dotenv').config();
-const db= knex({
+const db = knex({
     client: 'pg',
     connection: {
         host :  process.env.HOST, //localhost
@@ -12,15 +12,15 @@ const db= knex({
 });
 
 // test the connections
-db.select('*').from('scholarship_finder.scholarships')
-  .then((rows) => {
-    console.log(rows);
-  })
-  .catch((err) => {
-    console.error(err);
-  })
-  .finally(() => {
-    db.destroy();
-});
+// db.select('*').from('scholarship_finder.scholarships')
+//   .then((rows) => {
+//     console.log(rows);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   })
+//   .finally(() => {
+//     db.destroy();
+// });
 
 module.exports = db;
