@@ -1,6 +1,7 @@
 import React from 'react';
 import BasicTextField from '../components/Login-Register/BasicTextField';
 import BasicButton from '../components/Login-Register/BasicButton';
+import PasswordField from '../components/Login-Register/PasswordField';
 import UnderlineLink from '../components/Login-Register/UnderlineLink';
 import './Register.css';
 
@@ -11,7 +12,7 @@ export default function Register() {
         <div className='text-container'>
             <BasicTextField label="Name"/>
             <BasicTextField label="Email"/>
-            <BasicTextField label="Password"/>
+            <PasswordField />
         </div>
         <div className='button'>
         <BasicButton />
