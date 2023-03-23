@@ -13,7 +13,7 @@ export default function BasicTextField(props) {
       autoComplete="off"
     >
       <TextField
-        type="email" label={props.label} variant="outlined" />
+        type={props.type} label={props.label} variant="outlined" />
     </Box>
   );
 }

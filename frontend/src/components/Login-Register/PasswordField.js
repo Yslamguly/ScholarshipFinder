@@ -27,7 +27,7 @@ export default function PasswordField(props) {
       autoComplete="off"
     >
       <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
             <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -43,7 +43,7 @@ export default function PasswordField(props) {
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
+            label={props.label}
             />
       </FormControl>
     </Box>

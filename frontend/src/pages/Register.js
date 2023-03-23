@@ -10,9 +10,9 @@ export default function Register() {
       <div className='container'>
         <h1>Register</h1>
         <div className='text-container'>
-            <BasicTextField label="Name"/>
-            <BasicTextField label="Email"/>
-            <PasswordField />
+            <BasicTextField label="Name" type="text"/>
+            <BasicTextField label="Email" type="email"/>
+            <PasswordField label="Password"/>
         </div>
         <div className='button'>
         <BasicButton />
