@@ -34,7 +34,7 @@ export default function Register() {
 
   const onSignInClick = () => {
     console.log('Sending fields');
-    axios.post(`http://localhost:8080//users/register`, {
+    axios.post('http://localhost:8080//users/register', {
       name: name,
       email: email,
       password: password
