@@ -17,12 +17,12 @@ export default function PasswordField(props) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
-  const [password, setPassword] = useState('');
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-    props.onData(password);
-  };
+  //
+  // const [password, setPassword] = useState('');
+  // // const handlePasswordChange = (event) => {
+  // //   setPassword(event.target.value);
+  // //   props.onPasswordChange(password);
+  // // };
   return (
     <Box
       sx={{
@@ -49,9 +49,8 @@ export default function PasswordField(props) {
               </InputAdornment>
             }
             label={props.label}
-            value={password}
-            onChange={handlePasswordChange}
-            />
+            value={props.password}
+            onChange={({target})=>props.setPassword(target.value)}/>
       </FormControl>
     </Box>
   );

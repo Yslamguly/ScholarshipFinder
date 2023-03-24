@@ -10,35 +10,37 @@ import './Register.css';
 
 export default function Register() {
 
-  const [email, setEmailFromChild] = useState('');
-  const [name, setNameFromChild] = useState('');
-  const [password, setPasswordFromChild] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleEmailFromChild = (value) => {
-    setEmailFromChild(value);
-    // console.log(email);
-  };
-
-
-  const handleNameFromChild = (value) => {
-    setNameFromChild(value);
-    // console.log(name);
-  };
-
-
-  const handlePasswordFromChild = (value) => {
-    setPasswordFromChild(value);
-    console.log(password);
-  };
+  // const handleEmailFromChild = (value) => {
+  //   setEmailFromChild(value);
+  //   // console.log(email);
+  // };
+  //
+  //
+  // const handleNameFromChild = (value) => {
+  //   setNameFromChild(value);
+  //   // console.log(name);
+  // };
+  //
+  //
+  // const handlePasswordFromChild = (value) => {
+  //   setPasswordFromChild(value);
+  //   console.log(password);
+  // };
 
 
   const onSignInClick = () => {
-    console.log('Sending fields');
-    axios.post('http://localhost:8080//users/register', {
+    // console.log('Sending fields');
+    // console.log(name)
+    // console.log(email)
+    // console.log(password)
+    axios.post('http://localhost:8080/users/register', {
       name: name,
       email: email,
       password: password
-
     })
     .then(response => {
       // Handle the successful response from the server
@@ -50,19 +52,21 @@ export default function Register() {
     });
 
   }
-  
-    
+
+
 
   return (
       <div className='container'>
         <h1>Register</h1>
         <div className='text-container'>
-            <BasicTextField label="Name" type="text" onData={handleNameFromChild}/>
-            <BasicTextField label="Email" type="email" onData={handleEmailFromChild}/>
-            <PasswordField label="Password" onData={handlePasswordFromChild}/>
+            <BasicTextField label="Name" type="text" setText={(name)=>setName(name)} text={name}/>
+
+            <BasicTextField label="Email" type="email" setText={(email)=>setEmail(email)} text={email}/>
+
+            <PasswordField label="Password" setPassword={(password)=>setPassword(password)} password={password}/>
         </div>
         <div className='button'>
-          <Button sx={{ width: "430px", height: "35px" }} variant="contained" type='button' onClick={() => onSignInClick} >Sign Up</Button>
+          <Button sx={{ width: "430px", height: "35px" }} variant="contained" type='button' onClick={onSignInClick} >Sign Up</Button>
         </div>
         <Link sx={{ fontSize:"14px", marginTop:"10px"}} href="#" underline="always">
         {'Already have an account? Sign in'}

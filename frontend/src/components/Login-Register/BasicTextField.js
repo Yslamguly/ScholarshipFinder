@@ -4,15 +4,15 @@ import TextField from '@mui/material/TextField';
 
 export default function BasicTextField(props) {
 
-  const [data, setData] = useState(() => {return ''});
+  // const [data, setData] = useState(() => {return ''});
 
-  const handleDataChange = (event) => {
-    console.log("before : "+data);
-    setData(() => event.target.value);
-    console.log("after : "+data);
-    props.onData(data);
-  };
-  
+  // const handleDataChange = (event) => {
+  //   console.log("before : "+data);
+  //   setData(() => event.target.value);
+  //   console.log("after : "+data);
+  //   props.onData(data);
+  // };
+
 
   return (
     <Box
@@ -23,11 +23,11 @@ export default function BasicTextField(props) {
       autoComplete="off"
     >
       <TextField
-        type={props.type} 
-        label={props.label} 
+        type={props.type}
+        label={props.label}
         variant="outlined"
-        value={data}
-        onChange={handleDataChange} />
+        value={props.text}
+        onChange={({target})=>props.setText(target.value)}/>
     </Box>
   );
 }
