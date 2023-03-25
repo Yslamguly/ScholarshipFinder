@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import BasicTextField from '../components/Login-Register/BasicTextField';
 import PasswordField from '../components/Login-Register/PasswordField';
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 import axios from 'axios';
 import './Register.css';
@@ -13,6 +14,8 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   // const handleEmailFromChild = (value) => {
   //   setEmailFromChild(value);
@@ -45,10 +48,12 @@ export default function Register() {
     .then(response => {
       // Handle the successful response from the server
       console.log(response.data);
+      setSuccessMessage("Registration successful!");
     })
     .catch(error => {
       // Handle any errors that occur during the request
       console.error(error);
+      setErrorMessage("Registration failed!");
     });
 
   }
@@ -56,6 +61,11 @@ export default function Register() {
 
 
   return (
+    <div  style={{ display: "flex", justifyContent: "center",flexDirection:"column" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {errorMessage && !successMessage && <Alert severity="error" sx={{ width: "500px"}} onClose={() => {setErrorMessage(null)}}>{errorMessage}</Alert>}
+        {successMessage && !errorMessage && <Alert sx={{ width: "500px"}} onClose={() => {setSuccessMessage(null)}}>{successMessage}</Alert>} 
+      </div>
       <div className='container'>
         <h1>Register</h1>
         <div className='text-container'>
@@ -71,6 +81,7 @@ export default function Register() {
         <Link sx={{ fontSize:"14px", marginTop:"10px"}} href="#" underline="always">
         {'Already have an account? Sign in'}
         </Link>
+      </div>
       </div>
     );
   }
