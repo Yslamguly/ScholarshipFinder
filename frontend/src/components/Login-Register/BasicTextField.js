@@ -4,16 +4,6 @@ import TextField from '@mui/material/TextField';
 
 export default function BasicTextField(props) {
 
-  // const [data, setData] = useState(() => {return ''});
-
-  // const handleDataChange = (event) => {
-  //   console.log("before : "+data);
-  //   setData(() => event.target.value);
-  //   console.log("after : "+data);
-  //   props.onData(data);
-  // };
-
-
   return (
     <Box
       sx={{
