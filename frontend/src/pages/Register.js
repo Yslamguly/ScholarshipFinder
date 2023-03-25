@@ -6,7 +6,6 @@ import Alert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 import axios from 'axios';
 import './Register.css';
-// require('dotenv').config();
 
 
 export default function Register() {
@@ -17,29 +16,7 @@ export default function Register() {
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // const handleEmailFromChild = (value) => {
-  //   setEmailFromChild(value);
-  //   // console.log(email);
-  // };
-  //
-  //
-  // const handleNameFromChild = (value) => {
-  //   setNameFromChild(value);
-  //   // console.log(name);
-  // };
-  //
-  //
-  // const handlePasswordFromChild = (value) => {
-  //   setPasswordFromChild(value);
-  //   console.log(password);
-  // };
-
-
   const onSignInClick = () => {
-    // console.log('Sending fields');
-    // console.log(name)
-    // console.log(email)
-    // console.log(password)
     axios.post('http://localhost:8080/users/register', {
       name: name,
       email: email,
@@ -49,11 +26,13 @@ export default function Register() {
       // Handle the successful response from the server
       console.log(response.data);
       setSuccessMessage("Registration successful!");
+      setErrorMessage(null);
     })
     .catch(error => {
       // Handle any errors that occur during the request
       console.error(error);
-      setErrorMessage("Registration failed!");
+      setErrorMessage("Registration failed! "+ error.response.data.message);
+      setSuccessMessage(null);
     });
 
   }
