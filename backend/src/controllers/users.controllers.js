@@ -25,3 +25,28 @@ exports.register = async(req,res) => {
      });
 
 }
+
+exports.login = async(req,res) => {
+   // Extract data from the request body
+   const { email, password } = req.body;
+   
+   // Check if all required fields are present
+   if ( !email || !password) {
+      res.status(400).json({ error: 'All fields are required' });
+   }
+
+   db.select('email','password')
+  .from('scholarship_finder.users')
+  .where('email','=',{email})
+  .then((data) => {
+   const pass = data.length > 0 ? data[0].password : '';
+   const isValid = bcrypt.compareSync(password, pass);
+   // Return success message
+   if (isValid) {
+      res.status(200).json("loged in successfully");
+   } 
+   else{
+      console.log(error);
+      res.status(500).json({ error: 'Internal server error' });
+   }})
+}
