@@ -1,2 +1,7 @@
 --20.03.2023
 ALTER TABLE scholarship_finder.users ADD CONSTRAINT users_un UNIQUE (email);
+
+
+
+--28.03.2023
+ALTER TABLE scholarship_finder.users ADD CONSTRAINT users_un UNIQUE (email);
