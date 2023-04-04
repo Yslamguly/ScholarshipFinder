@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import BasicTextField from '../components/Login-Register/BasicTextField';
 import PasswordField from '../components/Login-Register/PasswordField';
 import Button from '@mui/material/Button';
@@ -10,6 +11,8 @@ import './Register.css';
 
 export default function Register() {
 
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -27,6 +30,7 @@ export default function Register() {
       console.log(response.data);
       setSuccessMessage("Registration successful!");
       setErrorMessage(null);
+      navigate("/login");
     })
     .catch(error => {
       // Handle any errors that occur during the request
@@ -57,7 +61,7 @@ export default function Register() {
         <div className='button'>
           <Button sx={{ width: "430px", height: "35px" }} variant="contained" type='button' onClick={onSignInClick} >Sign Up</Button>
         </div>
-        <Link sx={{ fontSize:"14px", marginTop:"10px"}} href="#" underline="always">
+        <Link sx={{ fontSize:"14px", marginTop:"10px"}} href="/login" underline="always">
         {'Already have an account? Sign in'}
         </Link>
       </div>
