@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+}
+div.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 180px;
+}
+
+div.gallery img {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /*border-radius: 50%;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+}
+
+div.desc {
+    text-align: center;
+}
+div.name{
+    padding:5px;
+    text-align: center;
+}
