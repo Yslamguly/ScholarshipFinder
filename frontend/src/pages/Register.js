@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 import axios from 'axios';
-import './Register.css';
+import '../styles/Register.css';
 
 
 export default function Register() {
@@ -47,7 +47,7 @@ export default function Register() {
     <div  style={{ display: "flex", justifyContent: "center",flexDirection:"column" }}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {errorMessage && !successMessage && <Alert severity="error" sx={{ width: "500px"}} onClose={() => {setErrorMessage(null)}}>{errorMessage}</Alert>}
-        {successMessage && !errorMessage && <Alert sx={{ width: "500px"}} onClose={() => {setSuccessMessage(null)}}>{successMessage}</Alert>} 
+        {successMessage && !errorMessage && <Alert sx={{ width: "500px"}} onClose={() => {setSuccessMessage(null)}}>{successMessage}</Alert>}
       </div>
       <div className='container'>
         <h1>Register</h1>

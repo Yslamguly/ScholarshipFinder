@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import icon from'../img/icons/menu-line.png';
-import "./NavBar.css";
+import "../styles/NavBar.css";
 
 export default function NavBar() {
   const [click, setClick] = useState(false);
