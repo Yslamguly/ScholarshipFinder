@@ -1,0 +1,36 @@
+.landing {
+    height: 100vh; /* Set the height of the landing div to be the height of the viewport */
+    background: url("../img/four-happy-students-near-university-campus.jpg") no-repeat center center; /* Set the background image to cover the landing div */
+    background-size: cover; /* Scale the background image to cover the entire landing div */
+    display: flex; /* Use flexbox to center the content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+.landing-text {
+    background-color: rgba(37, 35, 35, 0);
+    clip-path: circle(50.8% at 50% 50%);
+    font-weight:bolder;
+    padding: 20px;
+    margin-top: 200px;
+    width: 800px;
+    text-align: center;
+    color: #ffffff;
+  }
+.search-container{
+    background-color: rgb(255, 255, 255);
+    font-weight:bolder;
+    padding: 12px 120px;
+}
+
+@media screen and (max-width: 600px) {
+    .search-container{
+        display: flex;
+        flex-direction: column;
+    }
+    /* .landing{
+        display: flex;
+        flex-direction: column;
+    } */
+}

@@ -4,8 +4,7 @@ import NavBar from "./components/NavBar";
 import {Footer} from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-// import Card from '../src/components/Cards/Card';
-// import CardList from './components/Cards/CardList';
+import CardList from './components/Cards/CardList';
 
 export const RouterController = () =>{
     return(
@@ -15,7 +14,8 @@ export const RouterController = () =>{
                 <Route path={'/home'} element={<Home/>}/>
                 <Route path={'/register'} element={<Register/>}/>
                 <Route path={'/login'} element={<Login/>}/>
-                {/*<Route path={'/card'} element={<CardList/>}/>*/}
+                <Route path={'/card'} element={<CardList/>}/>
+                <Route path={'/'} element={<Home/>}/>
             </Routes>
             <Footer/>
         </Router>

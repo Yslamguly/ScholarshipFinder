@@ -12,7 +12,7 @@ export default function NavBar() {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/home" className="nav-logo">
-            ScholrFinder
+            
             <i className="fas fa-code"></i>
           </NavLink>
 
@@ -63,7 +63,7 @@ export default function NavBar() {
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"}><img src={icon}></img></i>
+            <i className={click ? "fas fa-times" : "fas fa-bars"}><img src={icon} alt="menu"></img></i>
           </div>
         </div>
       </nav>
