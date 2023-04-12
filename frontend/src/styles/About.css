@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em;
+}
+.main-page-container{
+    height:70vh;
+    background-image: url('https://www.tvdsb.ca/en/schools/resources/Information-for-Grade-8-Students/Info-for-Grade-8-banner.jpg');
+    background-repeat: no-repeat;
+    width:100%;
+    margin:0;
+}
+.info-container{
+    margin-left: 5em;
+    margin-right: 5em;
+    padding-left:5em ;
+    padding-right:5em ;
+    text-align: center;
+}
+.info-container p{
+    color: #125be2;
+}
+div.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 180px;
+}
+
+div.gallery img {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /*border-radius: 50%;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+}
+
+div.desc {
+    text-align: center;
+}
+div.name{
+    padding:5px;
+    text-align: center;
+}
