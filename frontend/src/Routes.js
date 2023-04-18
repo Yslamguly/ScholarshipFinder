@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import {Footer} from "./components/Footer";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import {About} from "./pages/About";
 
 export const RouterController = () =>{
     return(
@@ -14,6 +15,7 @@ export const RouterController = () =>{
                 <Route path={'/register'} element={<Register/>}/>
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/'} element={<Home/>}/>
+                <Route path={'/about'} element={<About/>}/>
             </Routes>
             <Footer/>
         </Router>
