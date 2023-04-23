@@ -7,7 +7,7 @@ export const Home = () =>{
         <>
         <Landing />
         <div>
-        <h1 style={{ textAlign: 'center',marginTop:'30px' }}>The Latest Scholarships</h1>
+        <h1 style={{ textAlign: 'center',marginTop:'30px', marginBottom:'30px' }}>The Latest Scholarships</h1>
         </div>
         <CardList/>
         </>

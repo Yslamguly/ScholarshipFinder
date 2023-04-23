@@ -1,8 +1,7 @@
 .cards-container{
     display: flex;
     flex-direction: row;
-    margin: 10px 10px;
-}
-.card{
-    display: flex;
+    margin: 10px 35px;
+    justify-content: center;
+    flex-wrap: wrap;
 }

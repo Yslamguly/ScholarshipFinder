@@ -24,9 +24,7 @@ export default function CardList() {
 
   return (
     <div className="cards-container">
-      <div className="card">
       {CardsData.map((data) => <CardInfo data={data}/>)}
-      </div>
     </div>
   );
 }
