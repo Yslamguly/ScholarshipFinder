@@ -57,7 +57,7 @@ export const About = () => {
                             <a target="_blank" href={contributor.repo}>
                                 <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
                             </a>
-                            <div className="name">{contributor.name}</div>
+                            <a className={'hover-underline-animation'} href={contributor.repo}>{contributor.name}</a>
 
                             <div className="desc">{contributor.title}</div>
                         </div>
@@ -70,7 +70,7 @@ export const About = () => {
                             <a target="_blank" href={contributor.repo}>
                                 <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
                             </a>
-                            <div className="name">{contributor.name}</div>
+                            <a className={'hover-underline-animation'} href={contributor.repo}>{contributor.name}</a>
 
                             <div className="desc">{contributor.title}</div>
                         </div>
