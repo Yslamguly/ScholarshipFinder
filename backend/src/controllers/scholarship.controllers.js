@@ -53,26 +53,26 @@ exports.getScholarshipsById = (req,res) => {
             console.log(error);
             res.status(500).json({ message: 'Internal server error' });
           });
-      
+
 }
 
 exports.getScholarshipByCategoryId = (req, res) => {
 
     const { categoryId } = req.params;
 
-    db.select('*')
-        .from('scholarship_finder.scholarship_category')
-        .where({category_id: categoryId})
-        .then((data) => {
-            // Return the scholarship data retrieved from the database
-            if (data.length === 0) {
-                return res.status(404).json({ message: 'Scholarship not found' });
-            }
-            res.status(200).json(data);
-        })
-        .catch((error) => {
-            console.log(error);
-            res.status(500).json({ message: 'Internal server error' });
-        });
-
+    db.select(`scholarship_finder.scholarships.id`,
+        `scholarship_finder.scholarships.title`,
+        `scholarship_finder.scholarships.description`,
+        `scholarship_finder.scholarships.link`,
+        `scholarship_finder.scholarships.image`,
+        `scholarship_finder.scholarships.deadline_date`,`scholarship_finder.categories.name`)
+        .from('scholarship_finder.scholarships')
+        .leftJoin('scholarship_finder.scholarship_category',function (){
+            this.on('scholarship_finder.scholarship_category.scholarship_id','=',`scholarship_finder.scholarships.id`)}
+        ).leftJoin('scholarship_finder.categories',function (){
+        this.on('scholarship_finder.categories.id','=','scholarship_finder.scholarship_category.category_id')
+    })
+        .where('scholarship_finder.scholarship_category.category_id','=',categoryId)
+        .then((data)=>res.send(data))
+        .catch((e)=>res.send(e))
 }
