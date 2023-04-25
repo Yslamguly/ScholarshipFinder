@@ -9,12 +9,13 @@ export const About = () => {
         {
             img: 'https://avatars.githubusercontent.com/u/114420065?v=4',
             name: "Waleed Muslem",
-            repo: "",
+            repo: "https://github.com/WaleedMuslem",
             title: 'CEO',
         },
         {
             img: 'https://avatars.githubusercontent.com/u/90982692?v=4',
             name: "Rachid Aifar",
+            repo:"https://github.com/RachidAifar",
             title: 'Project Manager',
         },
         {
