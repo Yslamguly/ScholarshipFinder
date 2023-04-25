@@ -1,3 +1,47 @@
+.landing {
+    height: 100vh; /* Set the height of the landing div to be the height of the viewport */
+    background-image:
+            linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            url('https://www.tvdsb.ca/en/schools/resources/Information-for-Grade-8-Students/Info-for-Grade-8-banner.jpg');
+    /*background-image: linear-gradient(*/
+    /*        rgba(0, 0, 0, 0.5),*/
+    /*        rgba(0, 0, 0, 0.5)*/
+    /*),*/
+    /*url("https://www.tvdsb.ca/en/schools/resources/Information-for-Grade-8-Students/Info-for-Grade-8-banner.jpg") no-repeat center center; !* Set the background image to cover the landing div *!*/
+    background-size: cover; /* Scale the background image to cover the entire landing div */
+    display: flex; /* Use flexbox to center the content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.landing p{
+    padding: 5em;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+}
+@media screen and (max-width: 760px) {
+    .landing p{
+        font-size: medium;
+    }
+    /* .landing{
+        display: flex;
+        flex-direction: column;
+    } */
+}
+@media screen and (max-width: 375px) {
+    .landing p{
+        font-size:small;
+        padding: 2em;
+    }
+    /* .landing{
+        display: flex;
+        flex-direction: column;
+    } */
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -11,13 +55,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2em;
-}
-.main-page-container{
-    height:70vh;
-    background-image: url('https://www.tvdsb.ca/en/schools/resources/Information-for-Grade-8-Students/Info-for-Grade-8-banner.jpg');
-    background-repeat: no-repeat;
-    width:100%;
-    margin:0;
 }
 .info-container{
     margin-left: 5em;
