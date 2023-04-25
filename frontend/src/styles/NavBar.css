@@ -7,6 +7,17 @@
     top: 0;
     z-index: 1000;
   }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .dropdown-menu.active {
+    display: block;
+  }
   
   .nav-container {
     display: flex;

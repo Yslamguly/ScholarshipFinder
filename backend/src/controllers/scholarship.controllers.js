@@ -2,16 +2,37 @@ const db = require('../../config/db');
 
 exports.getScholarships = (req,res) => {
 
-    db.select('*')
-      .from('scholarship_finder.scholarships')
-        .then((data) => {
-        // Return success message
-        res.status(200).json(data);
-        })
-      .catch((error) => {
-        console.log(error);
-         res.status(500).json({ message: 'Internal server error' });
-        });
+
+  db.select(
+    'scholarship_finder.scholarships.title',
+    'scholarship_finder.scholarships.description',
+    'scholarship_finder.scholarships.deadline_date',
+    'scholarship_finder.scholarships.link',
+    'scholarship_finder.scholarships.image',
+    'scholarship_finder.categories.name'
+  )
+  .from('scholarship_finder.scholarships')
+  .leftOuterJoin('scholarship_finder.scholarship_category', 'scholarship_finder.scholarships.id', '=', 'scholarship_finder.scholarship_category.scholarship_id')
+  .leftOuterJoin('scholarship_finder.categories', 'scholarship_finder.scholarship_category.category_id', '=', 'scholarship_finder.categories.id')
+    .then((data) => {
+    // Return success message
+    res.status(200).json(data);
+    })
+    .catch((error) => {
+    console.log(error);
+     res.status(500).json({ message: 'Internal server error' });
+    });
+  
+    // db.select('*')
+    //   .from('scholarship_finder.scholarships')
+    //     .then((data) => {
+    //     // Return success message
+    //     res.status(200).json(data);
+    //     })
+    //   .catch((error) => {
+    //     console.log(error);
+    //      res.status(500).json({ message: 'Internal server error' });
+    //     });
 }
 
 exports.getScholarshipsById = (req,res) => {

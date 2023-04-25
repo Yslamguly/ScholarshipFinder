@@ -21,6 +21,9 @@ export default function CardInfo(props) {
           <Typography gutterBottom variant="h5" component="div">
             {props.data.title}
           </Typography>
+          <Typography variant="subtitle1" color="text.secondary" sx={{ marginBottom:2}}>
+          {props.data.name}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>

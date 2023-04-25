@@ -9,7 +9,7 @@ export const Home = () =>{
         <div>
         <h1 style={{ textAlign: 'center',marginTop:'30px', marginBottom:'30px' }}>The Latest Scholarships</h1>
         </div>
-        <CardList/>
+        <CardList link={'http://localhost:8080/scholarship'}/>
         </>
       );
 }

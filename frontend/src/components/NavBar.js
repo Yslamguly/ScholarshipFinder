@@ -6,6 +6,7 @@ import "../styles/NavBar.css";
 export default function NavBar() {
   const [click, setClick] = useState(false);
 
+
   const handleClick = () => setClick(!click);
   return (
     <>
@@ -28,6 +29,14 @@ export default function NavBar() {
                 Home
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+                <a href="#">Products</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Product 1</a></li>
+                  <li><a href="#">Product 2</a></li>
+                  <li><a href="#">Product 3</a></li>
+                </ul>
+            </li> */}
             <li className="nav-item">
               <NavLink
                 exact
