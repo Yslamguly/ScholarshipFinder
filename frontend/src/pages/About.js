@@ -1,5 +1,8 @@
 import * as React from 'react';
 import '../styles/About.css'
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export const About = () => {
     const contributors1 = [
@@ -36,10 +39,8 @@ export const About = () => {
         },
     ]
     return (
-        <div className={'container '}>
-            <div className={'main-page-container'}></div>
-            <div className={'container info-container'}>
-                <h1>ScholrFinder</h1>
+        <>
+            <div className="landing">
                 <p>ScholrFinder is Network to Provide you latest information about Scholarships, Events,
                     and much about career opportunities. The aim of SF is to create awareness that lets people land
                     their dream jobs, scholarships, and careers. We bring people around the globe closer by providing
@@ -47,33 +48,35 @@ export const About = () => {
                     us help you succeed.
                 </p>
             </div>
-            <h1>Our team</h1>
-            <div className={'image-container'}>
-                {contributors1.map((contributor) => (
-                    <div className="gallery">
-                        <a target="_blank" href={contributor.repo}>
-                            <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
-                        </a>
-                        <div className="name">{contributor.name}</div>
+            <div className={'container '}>
+                <h1>Our team</h1>
+                <div className={'image-container'}>
+                    {contributors1.map((contributor) => (
+                        <div className="gallery">
+                            <a target="_blank" href={contributor.repo}>
+                                <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
+                            </a>
+                            <div className="name">{contributor.name}</div>
 
-                        <div className="desc">{contributor.title}</div>
-                    </div>
-                ))}
+                            <div className="desc">{contributor.title}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className={'image-container'}>
+                    {contributors2.map((contributor) => (
+                        <div className="gallery">
+                            <a target="_blank" href={contributor.repo}>
+                                <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
+                            </a>
+                            <div className="name">{contributor.name}</div>
+
+                            <div className="desc">{contributor.title}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
-
-            <div className={'image-container'}>
-                {contributors2.map((contributor) => (
-                    <div className="gallery">
-                        <a target="_blank" href={contributor.repo}>
-                            <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
-                        </a>
-                        <div className="name">{contributor.name}</div>
-
-                        <div className="desc">{contributor.title}</div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        </>
     );
 }
 
