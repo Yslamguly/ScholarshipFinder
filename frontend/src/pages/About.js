@@ -40,7 +40,7 @@ export const About = () => {
     ]
     return (
         <>
-            <div className="landing">
+            <div className="about-landing">
                 <p>ScholrFinder is Network to Provide you latest information about Scholarships, Events,
                     and much about career opportunities. The aim of SF is to create awareness that lets people land
                     their dream jobs, scholarships, and careers. We bring people around the globe closer by providing

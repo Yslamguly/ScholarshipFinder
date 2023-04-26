@@ -1,4 +1,4 @@
-.landing {
+.about-landing {
     height: 100vh; /* Set the height of the landing div to be the height of the viewport */
     background-image:
             linear-gradient(
@@ -17,14 +17,14 @@
     align-items: center;
     flex-direction: column;
 }
-.landing p{
+.about-landing p{
     padding: 5em;
     font-size: x-large;
     font-weight: bold;
     color: white;
 }
 @media screen and (max-width: 760px) {
-    .landing p{
+    .about-landing p{
         font-size: medium;
     }
     /* .landing{
@@ -33,7 +33,7 @@
     } */
 }
 @media screen and (max-width: 375px) {
-    .landing p{
+    .about-landing p{
         font-size:small;
         padding: 2em;
     }
