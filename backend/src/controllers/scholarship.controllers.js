@@ -72,7 +72,9 @@ exports.getScholarshipByCategoryId = (req, res) => {
         ).leftJoin('scholarship_finder.categories',function (){
         this.on('scholarship_finder.categories.id','=','scholarship_finder.scholarship_category.category_id')
     })
-        .where('scholarship_finder.scholarship_category.category_id','=',categoryId)
+      // changed so we return the specific id and all category scholarships
+        .whereIn('scholarship_finder.scholarship_category.category_id', [categoryId, 4])
+        // .where('scholarship_finder.scholarship_category.category_id','=',categoryId)
         .then((data)=>res.send(data))
         .catch((e)=>res.send(e))
 }

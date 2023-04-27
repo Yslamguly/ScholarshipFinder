@@ -17,9 +17,9 @@ export const RouterController = () =>{
                 <Route path={'/login'} element={<Login/>}/>
                 <Route path={'/'} element={<Home/>}/>
                 <Route path={'/about'} element={<About/>}/>
-                <Route path={'/Bachelor'} element={<Category category={'Bachelor'}/>}/>
-                <Route path={'/Master'} element={<Category category={'Master'}/>}/>
-                <Route path={'/PHD'} element={<Category category={'PHD'}/>}/>
+                <Route path={'/Bachelor'} element={<Category category={'Bachelor'} id={'1'}/>}/>
+                <Route path={'/Master'} element={<Category category={'Master'} id={'2'}/>}/>
+                <Route path={'/PHD'} element={<Category category={'PHD'} id={'3'}/>}/>
             </Routes>
             <Footer/>
         </Router>

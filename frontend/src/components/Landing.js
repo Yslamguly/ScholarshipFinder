@@ -15,6 +15,7 @@ export default function Landing() {
               disablePortal
               id="combo-box-demo"
               options={countries}
+              className="search-box"
               sx={{ width: 400, backgroundColor:"white" }}
               renderInput={(params) => <TextField {...params} label="Where are you going to study?" />}
             />
