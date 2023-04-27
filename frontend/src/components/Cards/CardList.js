@@ -13,6 +13,7 @@ export default function CardList(props) {
       // Handle the successful response from the server
           console.log(response.data);
           setCardsData(response.data);
+          props.setLength(response.data.length);
           })
         .catch(error => {
       // Handle any errors that occur during the request
