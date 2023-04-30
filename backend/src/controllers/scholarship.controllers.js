@@ -4,6 +4,7 @@ exports.getScholarships = (req,res) => {
 
 
   db.select(
+    'scholarship_finder.scholarships.id',
     'scholarship_finder.scholarships.title',
     'scholarship_finder.scholarships.description',
     'scholarship_finder.scholarships.deadline_date',
@@ -77,4 +78,19 @@ exports.getScholarshipByCategoryId = (req, res) => {
         // .where('scholarship_finder.scholarship_category.category_id','=',categoryId)
         .then((data)=>res.send(data))
         .catch((e)=>res.send(e))
+}
+
+exports.getRandomScholarships = (req,res) => {
+
+
+  db.select('*').from('scholarship_finder.scholarships')
+  .orderByRaw('RANDOM()')
+  .limit(3) // Replace `10` with the number of rows you want to select
+  .then(data => {
+    res.status(200).json(data);
+  })
+  .catch((error) => {
+    console.log(error);
+     res.status(500).json({ message: 'Internal server error' });
+    });
 }
