@@ -10,6 +10,7 @@ export const CardDetails = () =>{
   
   const[scholarshipById, setScholarshipById] = useState([]);
   const { id } = useParams();
+  const [date, setDate] = useState();
 
   useEffect(()=>{
     axios.get(`http://localhost:8080/scholarship/${id}`)
@@ -17,6 +18,7 @@ export const CardDetails = () =>{
     // Handle the successful response from the server
       console.log(response.data);
       setScholarshipById(response.data);
+      setDate(response.data.deadline_date.slice(0,10));
       })
     .catch(error => {
     // Handle any errors that occur during the request
@@ -28,7 +30,7 @@ export const CardDetails = () =>{
         <div class="scholarship">
           <img src={scholarshipById.image} alt="Scholarship"></img>
           <h1>{scholarshipById.title}</h1>
-          <div className="deadline-container"><img src={calender} alt="Calendar-Icon" className="calender-icon"></img> <h2>Deadline: {scholarshipById.deadline_date}</h2></div>
+          <div className="deadline-container"><img src={calender} alt="Calendar-Icon" className="calender-icon"></img> <h2>Deadline: {date}</h2></div>
           <p>{scholarshipById.description}</p>
           <Button sx={{ width: "120px", height: "35px" }} variant="contained" type='button'>Apply Now</Button>
         </div>
