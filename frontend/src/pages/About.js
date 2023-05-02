@@ -9,12 +9,13 @@ export const About = () => {
         {
             img: 'https://avatars.githubusercontent.com/u/114420065?v=4',
             name: "Waleed Muslem",
-            repo: "",
+            repo: "https://github.com/WaleedMuslem",
             title: 'CEO',
         },
         {
             img: 'https://avatars.githubusercontent.com/u/90982692?v=4',
             name: "Rachid Aifar",
+            repo:"https://github.com/RachidAifar",
             title: 'Project Manager',
         },
         {
@@ -56,7 +57,7 @@ export const About = () => {
                             <a target="_blank" href={contributor.repo}>
                                 <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
                             </a>
-                            <div className="name">{contributor.name}</div>
+                            <a className={'hover-underline-animation'} href={contributor.repo}>{contributor.name}</a>
 
                             <div className="desc">{contributor.title}</div>
                         </div>
@@ -69,7 +70,7 @@ export const About = () => {
                             <a target="_blank" href={contributor.repo}>
                                 <img src={contributor.img} alt={contributor.name} width="600" height="400"/>
                             </a>
-                            <div className="name">{contributor.name}</div>
+                            <a className={'hover-underline-animation'} href={contributor.repo}>{contributor.name}</a>
 
                             <div className="desc">{contributor.title}</div>
                         </div>
