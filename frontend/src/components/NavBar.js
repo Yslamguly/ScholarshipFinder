@@ -1,81 +1,78 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import icon from'../img/icons/menu-line.png';
+import React, {useState} from "react";
+import {NavLink} from "react-router-dom";
+import icon from '../img/icons/menu-line.png';
 import "../styles/NavBar.css";
+import DropdownNavBar from "./DropdownNavBar";
 
 export default function NavBar() {
-  const [click, setClick] = useState(false);
+    const [click, setClick] = useState(false);
 
 
-  const handleClick = () => setClick(!click);
-  return (
-    <>
-      <nav className="navbar">
-        <div className="nav-container">
-          <NavLink exact to="/home" className="nav-logo">
-            
-            <i className="fas fa-code"></i>
-          </NavLink>
+    const handleClick = () => setClick(!click);
+    return (
+        <>
+        <nav className="navbar">
+            <div className="nav-container">
+                <NavLink exact to="/home" className="nav-logo">
 
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Home
-              </NavLink>
-            </li>
-            {/* <li className="nav-item">
-                <a href="#">Products</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Product 1</a></li>
-                  <li><a href="#">Product 2</a></li>
-                  <li><a href="#">Product 3</a></li>
-                </ul>
-            </li> */}
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/about"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                About
-              </NavLink>
+                    <i className="fas fa-code"></i>
+                </NavLink>
+
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className={"nav-item"}>
+                <DropdownNavBar/>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/login"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Log In
-              </NavLink>
+                <NavLink
+                    exact
+                    to="/"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                >
+                    Home
+                </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/register"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Register
-              </NavLink>
+                <NavLink
+                    exact
+                    to="/about"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                >
+                    About
+                </NavLink>
             </li>
-          </ul>
-          <div className="nav-icon" onClick={handleClick}>
+            <li className="nav-item">
+                <NavLink
+                    exact
+                    to="/login"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                >
+                    Log In
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink
+                    exact
+                    to="/register"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                >
+                    Register
+                </NavLink>
+            </li>
+        </ul>
+        <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}><img src={icon} alt="menu"></img></i>
-          </div>
         </div>
-      </nav>
-    </>
-  );
+        </div>
+</nav>
+</>
+)
+    ;
 }
