@@ -18,6 +18,7 @@ export default function Login() {
     const [successMessage, setSuccessMessage] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
     const { setUser } = useAuth();
+ 
     const onSignInClick = () => {
       axios.post('http://localhost:8080/users/login', {
         email: email,
@@ -30,7 +31,9 @@ export default function Login() {
         setUser(sessionStorage.getItem('user'))
         setSuccessMessage("Loging successful!");
         setErrorMessage(null);
-        navigate("/home");
+        setTimeout(() => {
+          navigate("/home");
+        }, 1200);
       })
       .catch(error => {
         setErrorMessage("Loging failed! "+ error.response.data.error);
