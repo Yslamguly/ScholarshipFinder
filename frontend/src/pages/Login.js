@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import axios from 'axios';
 import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
+import {useAuth} from "../utils/auth/UserContext";
 
 
 export default function Login() {
@@ -16,7 +17,7 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [successMessage, setSuccessMessage] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
-
+    const { setUser } = useAuth();
     const onSignInClick = () => {
       axios.post('http://localhost:8080/users/login', {
         email: email,
@@ -25,14 +26,14 @@ export default function Login() {
       .then(response => {
         // Handle the successful response from the server
         console.log(response.data);
+        sessionStorage.setItem('user',JSON.stringify(response.data))
+        setUser(sessionStorage.getItem('user'))
         setSuccessMessage("Loging successful!");
         setErrorMessage(null);
         navigate("/home");
       })
       .catch(error => {
-        // Handle any errors that occur during the request
-        console.error(error);
-        setErrorMessage("Loging failed! "+ error.response.data.message);
+        setErrorMessage("Loging failed! "+ error.response.data.error);
         setSuccessMessage(null);
       });
 
