@@ -16,6 +16,9 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [successMessage, setSuccessMessage] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    // const timer = setTimeout(() => {
+    //   navigate("/home");
+    // }, 2000);
 
     const onSignInClick = () => {
       axios.post('http://localhost:8080/users/login', {
@@ -27,7 +30,9 @@ export default function Login() {
         console.log(response.data);
         setSuccessMessage("Loging successful!");
         setErrorMessage(null);
-        navigate("/home");
+        setTimeout(() => {
+          navigate("/home");
+        }, 1200);
       })
       .catch(error => {
         // Handle any errors that occur during the request
