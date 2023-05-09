@@ -13,6 +13,8 @@ export const CardDetails = () =>{
   const [date, setDate] = useState();
 
   useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    
     axios.get(`http://localhost:8080/scholarship/${id}`)
     .then(response => {
     // Handle the successful response from the server
