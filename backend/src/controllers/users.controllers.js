@@ -35,7 +35,10 @@ exports.login = (req,res) => {
       res.status(400).json({ error: 'All fields are required' });
    }
 
-   db.select('email','password')
+   db.select('scholarship_finder.users.id',
+             'scholarship_finder.users.name',
+             'scholarship_finder.users.email',
+             'scholarship_finder.users.password')
   .from('scholarship_finder.users')
   .where('email','=',email)
     .then(async( data) => {
@@ -43,7 +46,12 @@ exports.login = (req,res) => {
        const isValid = await bcrypt.compareSync(password, pass);
        // Return success message
        if (isValid) {
-          res.status(200).json("logged in successfully");
+         const responseData = {
+            id: data[0].id,
+            name: data[0].name,
+            email: data[0].email
+          };
+          res.status(200).json(responseData);
        }
        else{
           // console.log(error);
