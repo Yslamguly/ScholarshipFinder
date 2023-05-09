@@ -3,8 +3,11 @@ import {NavLink} from "react-router-dom";
 import icon from '../img/icons/menu-line.png';
 import "../styles/NavBar.css";
 import DropdownNavBar from "./DropdownNavBar";
+import {useAuth} from "../utils/auth/UserContext";
 
 export default function NavBar() {
+    const { user,setUser } = useAuth();
+
     const [click, setClick] = useState(false);
 
 
@@ -44,7 +47,18 @@ export default function NavBar() {
                     About
                 </NavLink>
             </li>
-            <li className="nav-item">
+
+            {user ? <li className="nav-item">
+                <NavLink
+                    exact
+                    to="/login"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                >
+                    {user.name}
+                </NavLink>
+            </li> : <li className="nav-item">
                 <NavLink
                     exact
                     to="/login"
@@ -54,18 +68,7 @@ export default function NavBar() {
                 >
                     Log In
                 </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink
-                    exact
-                    to="/register"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={handleClick}
-                >
-                    Register
-                </NavLink>
-            </li>
+            </li>}
         </ul>
         <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}><img src={icon} alt="menu"></img></i>
