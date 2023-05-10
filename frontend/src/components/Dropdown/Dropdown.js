@@ -6,7 +6,7 @@ function Dropdown(props) {
         <>
             <div className="dropdown">
                 <button className="dropbtn">{props.header}
-                    <ArrowDropDownIcon/>
+                    <ArrowDropDownIcon style={{ paddingTop: "0.5rem"}}/>
                 </button>
                 <div className="dropdown-content">
                     {props.menuItems.map((item,index)=>(
