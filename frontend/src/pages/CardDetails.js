@@ -7,14 +7,14 @@ import '../styles/detail.css';
 import CardList from "../components/Cards/CardList";
 
 export const CardDetails = () =>{
-  
+
   const[scholarshipById, setScholarshipById] = useState([]);
   const { id } = useParams();
   const [date, setDate] = useState();
 
   useEffect(()=>{
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-    
+
     axios.get(`http://localhost:8080/scholarship/${id}`)
     .then(response => {
     // Handle the successful response from the server
@@ -29,7 +29,7 @@ export const CardDetails = () =>{
   },[])
     return (
       <>
-        <div class="scholarship">
+        <div className="scholarship">
           <img src={scholarshipById.image} alt="Scholarship"></img>
           <h1>{scholarshipById.title}</h1>
           <div className="deadline-container"><img src={calender} alt="Calendar-Icon" className="calender-icon"></img> <h2>Deadline: {date}</h2></div>
