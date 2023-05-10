@@ -2,16 +2,18 @@ import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
 import icon from '../img/icons/menu-line.png';
 import "../styles/NavBar.css";
-import DropdownNavBar from "./DropdownNavBar";
+import ScholarshipMenuItems from './Dropdown/ScholarshipMenuItems'
+import {UserMenuItems} from "./Dropdown/UserMenuItems";
+import Dropdown from "./Dropdown/Dropdown";
 import {useAuth} from "../utils/auth/UserContext";
 
 export default function NavBar() {
-    const { user,setUser } = useAuth();
+    const { user } = useAuth();
 
     const [click, setClick] = useState(false);
 
 
-    const handleClick = () => setClick(!click);
+    const handleClick = () => setClick(!click); //Why do we need this ?
     return (
         <>
         <nav className="navbar">
@@ -23,7 +25,7 @@ export default function NavBar() {
 
         <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className={"nav-item"}>
-                <DropdownNavBar/>
+                    <Dropdown menuItems={ScholarshipMenuItems} header={'Scholarships'}/>
             </li>
             <li className="nav-item">
                 <NavLink
@@ -49,15 +51,8 @@ export default function NavBar() {
             </li>
 
             {user ? <li className="nav-item">
-                <NavLink
-                    exact
-                    to="/login"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={handleClick}
-                >
-                    {user.name}
-                </NavLink>
+                <Dropdown menuItems={UserMenuItems} header={user.name}/>
+
             </li> : <li className="nav-item">
                 <NavLink
                     exact
