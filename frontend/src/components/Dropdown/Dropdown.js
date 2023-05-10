@@ -12,7 +12,7 @@ function Dropdown(props) {
                     {props.menuItems.map((item,index)=>(
                         item.type === 'anchor' ? (
                                 <a href={item.path} key={index}>{item.title}</a>
-                            ): <button className={'button'} onClick={item.onClickHandler}>{item.title}</button>
+                            ): <button className={'button'} key={index} onClick={item.onClickHandler}>{item.title}</button>
                     ))}
                 </div>
             </div>
