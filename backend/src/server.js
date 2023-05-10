@@ -1,6 +1,7 @@
 const express = require('express')
 const usersRoutes = require('../src/routes/users.routes')
 const scholarship = require('./routes/scholarship.routes')
+const wishListRoutes = require('./routes/wishlist.routes')
 const app = express()
 const port = 8080
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use('/scholarship',scholarship);
 app.use('/users',usersRoutes);
+app.use('/wishList',wishListRoutes)
 app.use('/',(req,res) => {res.send("home page")});
 
 
