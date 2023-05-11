@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import '../../styles/Card.css';
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
 
 export default function CardInfo(props) {
+
+
+
   const description = props.data.description.slice(0, 200) + "  .........";
   const navigate = useNavigate();
 
@@ -16,13 +20,12 @@ export default function CardInfo(props) {
     navigate(`/Scholarship/${props.data.id}`);
     navigate(0);
   }
-  
+
 
 
   return (
     <div className='cards'>
-      {/* <Link to={`/Scholarship/${props.data.id}`} > */}
-        <Card sx={{ maxWidth: 345, minWidth: 345, margin: 1}} onClick={refreshPage}>
+        <Card sx={{ maxWidth: 345, minWidth: 345, margin: 1}}>
           <CardActionArea>
             <CardMedia sx={{height:140}}
               component="img"
@@ -30,7 +33,7 @@ export default function CardInfo(props) {
               image={props.data.image}
               alt="scholarship"
             />
-            <CardContent>
+            <CardContent onClick={refreshPage}>
               <Typography gutterBottom variant="h5" component="div">
                 {props.data.title}
               </Typography>
@@ -43,12 +46,14 @@ export default function CardInfo(props) {
             </CardContent>
           </CardActionArea>
           <CardActions sx={{ marginLeft: 29 }}>
-            <Button size="small" color="primary" >
+            <Button size="small" color="primary" onClick={refreshPage}>
               Read More
             </Button>
+            {props.deleteButton ? <IconButton aria-label="delete" size="medium" color="error" onClick={()=>props.onDeleteScholarship(props.data.id)}>
+              <DeleteIcon fontSize="inherit"/>
+            </IconButton> : null }
           </CardActions>
         </Card>
-      {/* </Link> */}
     </div>
   );
 }
