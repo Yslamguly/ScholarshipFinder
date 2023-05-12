@@ -5,3 +5,8 @@ ALTER TABLE scholarship_finder.users ADD CONSTRAINT users_un UNIQUE (email);
 
 --28.03.2023
 ALTER TABLE scholarship_finder.users ADD CONSTRAINT users_un UNIQUE (email);
+
+
+--12.05.2023
+ALTER TABLE scholarship_finder.wish_list_item ADD CONSTRAINT wish_list_item_un UNIQUE (wish_list_id,scholarship_id);
+
