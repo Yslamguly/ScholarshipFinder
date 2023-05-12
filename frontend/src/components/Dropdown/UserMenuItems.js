@@ -2,7 +2,7 @@ export const UserMenuItems = [
     {
         type:'anchor',
         title:'My wish list',
-        path:'/wishList'
+        path:'/MyWishList'
     },
     {
         type:'button',

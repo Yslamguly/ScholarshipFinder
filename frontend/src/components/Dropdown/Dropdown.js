@@ -6,13 +6,13 @@ function Dropdown(props) {
         <>
             <div className="dropdown">
                 <button className="dropbtn">{props.header}
-                    <ArrowDropDownIcon/>
+                    <ArrowDropDownIcon style={{ paddingTop: "0.5rem"}}/>
                 </button>
                 <div className="dropdown-content">
                     {props.menuItems.map((item,index)=>(
                         item.type === 'anchor' ? (
                                 <a href={item.path} key={index}>{item.title}</a>
-                            ): <button className={'button'} onClick={item.onClickHandler}>{item.title}</button>
+                            ): <button className={'button'} key={index} onClick={item.onClickHandler}>{item.title}</button>
                     ))}
                 </div>
             </div>

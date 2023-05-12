@@ -7,9 +7,11 @@ import Login from "./pages/Login";
 import {Category} from "./pages/Category";
 import {CardDetails} from "./pages/CardDetails";
 import {About} from "./pages/About";
+import {WishList} from "./pages/WishList";
+import {PrivateRoute} from "./utils/auth/PrivateRoute";
 
-export const RouterController = () =>{
-    return(
+export const RouterController = () => {
+    return (
         <Router>
             <NavBar/>
             <Routes>
@@ -21,7 +23,12 @@ export const RouterController = () =>{
                 <Route path={'/Bachelor'} element={<Category category={'Bachelor'} id={'1'}/>}/>
                 <Route path={'/Master'} element={<Category category={'Master'} id={'2'}/>}/>
                 <Route path={'/PHD'} element={<Category category={'PHD'} id={'3'}/>}/>
-                <Route path={'/Scholarship/:id'} element={<CardDetails />}/>
+                <Route path={'/Scholarship/:id'} element={<CardDetails/>}/>
+                <Route path={'/MyWishList'} element={
+                    <PrivateRoute>
+                        <WishList/>
+                    </PrivateRoute>
+                }/>
             </Routes>
             <Footer/>
         </Router>
