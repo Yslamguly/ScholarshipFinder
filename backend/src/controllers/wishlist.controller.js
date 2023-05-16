@@ -78,7 +78,7 @@ exports.addScholarshipToWishList = async (req, res) => {
         .from('scholarship_finder.wish_list')
         .where('user_id', '=', user_id)
     db('scholarship_finder.wish_list_item')
-        .insert({wish_list_id:wish_list_id[0].id,scholarship_id:scholarship_id})
+        .insert({wish_list_id:wish_list_id[0].id ,scholarship_id:scholarship_id})
         .then(() => res.status(201).json({message: 'Scholarship has been added successfully'}))
         .catch(() => res.status(409).json({message: 'This scholarship is already in your list'}))
         .catch(err => res.status(500).json({message: err}))

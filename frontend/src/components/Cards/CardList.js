@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../styles/CardList.css';
 import {ErrorAlert} from "../Alerts/ErrorAlert";
 import {useAuth} from "../../utils/auth/UserContext";
+import noData from '../../img/noData.jpg';
 
 
 export default function CardList(props) {
@@ -48,7 +49,7 @@ export default function CardList(props) {
                                                                           deleteButton={props.deleteButton}
                                                                                 onDeleteScholarship={(scholarship_id)=>onDeleteScholarship(scholarship_id)}
                     />) :
-                    <h1>No items found</h1>}
+                    <img src={noData} />}
                 {/*Instead of "No items found" there should be an svg or something like that*/}
             </div>
         </>
