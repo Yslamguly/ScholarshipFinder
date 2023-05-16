@@ -30,7 +30,8 @@ export default function Register() {
       console.log(response.data);
       setSuccessMessage("Registration successful!");
       setErrorMessage(null);
-      navigate("/login");
+      setTimeout(()=>{
+        navigate("/login")},1200)
     })
     .catch(error => {
       // Handle any errors that occur during the request
