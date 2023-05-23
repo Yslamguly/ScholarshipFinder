@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
                     .insert({
                         user_id: user[0].id
                     }).then(() => {
-                        res.status(200).json({message: 'User registered successfully'});
+                        res.status(200).json(user[0]);
                     }).catch((e) => {
                         console.log(e)
                         res.sendStatus(500)
