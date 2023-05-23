@@ -9,6 +9,7 @@ import {CardDetails} from "./pages/CardDetails";
 import {About} from "./pages/About";
 import {WishList} from "./pages/WishList";
 import {PrivateRoute} from "./utils/auth/PrivateRoute";
+import Contact from './components/Contact';
 
 export const RouterController = () => {
     return (
@@ -18,6 +19,7 @@ export const RouterController = () => {
                 <Route path={'/home'} element={<Home/>}/>
                 <Route path={'/register'} element={<Register/>}/>
                 <Route path={'/login'} element={<Login/>}/>
+                <Route path={'/contact'} element={<Contact/>}/>
                 <Route path={'/'} element={<Home/>}/>
                 <Route path={'/about'} element={<About/>}/>
                 <Route path={'/Bachelor'} element={<Category category={'Bachelor'} id={'1'}/>}/>
