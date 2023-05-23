@@ -1,8 +1,5 @@
 import * as React from 'react';
 import '../styles/About.css'
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 
 export const About = () => {
     const contributors1 = [

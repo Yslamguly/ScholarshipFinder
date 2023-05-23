@@ -15,9 +15,13 @@ export default function CardList(props) {
     const {user} = useAuth();
 
     useEffect(() => {
-        axios.get(props.link)
+        const searchParams = new URLSearchParams(window.location.search);
+        const searchQuery = searchParams.get('search');
+
+        axios.get(props.link, {
+            params: {search: searchQuery}
+        })
             .then(response => {
-                console.log(response.data);
                 setCardsData(response.data);
             })
             .catch((error) => {
@@ -26,14 +30,13 @@ export default function CardList(props) {
                 console.error(error);
             });
 
-    }, [lastDeletedScholarship])
-    const onDeleteScholarship = (scholarship_id, index) => {
+    }, [lastDeletedScholarship, props.link]);
+    const onDeleteScholarship = (scholarship_id) => {
         axios.delete(`http://localhost:8080/wishList/deleteScholarshipFromWishList/${user.id}`, {
             data: {wish_list_item_scholarship_id: scholarship_id}
-        }).then((response) => {
+        }).then(() => {
             setLastDeletedScholarship(scholarship_id)
-            console.log(response)
-        }).catch((error)=>{
+        }).catch((error) => {
             setShowError(true)
             setErrorMessage(error.response.data.message)
             console.log(error)
@@ -45,12 +48,11 @@ export default function CardList(props) {
             <ErrorAlert showError={showError} setShowError={(bool) => setShowError(bool)} message={errorMessage}/>
 
             <div className="cards-container">
-                {cardsData.length > 0 ? cardsData.map((data,index) => <CardInfo data={data} key={data.id}
+                {cardsData.length > 0 ? cardsData.map((data) => <CardInfo data={data} key={data.id}
                                                                           deleteButton={props.deleteButton}
-                                                                                onDeleteScholarship={(scholarship_id)=>onDeleteScholarship(scholarship_id)}
+                                                                          onDeleteScholarship={(scholarship_id) => onDeleteScholarship(scholarship_id)}
                     />) :
-                    <img src={noData} />}
-                {/*Instead of "No items found" there should be an svg or something like that*/}
+                    <img src={noData} alt={'no data'}/>}
             </div>
         </>
     );
